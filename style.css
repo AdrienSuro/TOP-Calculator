@@ -1,0 +1,71 @@
+@media screen and (max-width: 480px) {
+    * {
+        font-size: 26px;
+        background-color: white;
+    } 
+
+    body {
+        margin : 0px;
+    }
+    .main {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 100vw;
+        height: 180vw;
+    }
+    .row, .first, .second, .third, .fourth, .fifth, .sixth {
+        display: flex;
+        flex-flow: row nowrap;
+        height: 16%;
+        margin-top: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+    .first {
+        justify-content: center;
+        align-items: center;
+    }
+    .result {
+        display : flex;
+        flex-flow : row nowrap;
+        justify-content: center;
+        border: 8px dotted red;
+        width: 100%;
+        margin-top: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+    .clear {
+        display : flex;
+        flex-flow : row nowrap;
+        justify-content: center;
+        align-items: center;
+        border: 5px solid red;
+        width: 72%;
+        margin-top: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+
+    .number {
+        width: 22%;
+        border: 5px solid red;
+        margin-top: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+    .operator {
+        width: 22%;
+        border: 5px solid red;
+        margin-top: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+    .equalsTo {
+        width: 48%;
+        border: 5px solid red;
+        margin-top: 2%;
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+}
