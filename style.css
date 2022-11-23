@@ -2,6 +2,7 @@
     * {
         font-size: 26px;
         background-color: white;
+        font-family: Arial, Helvetica, sans-serif;
     } 
 
     body {
@@ -35,6 +36,9 @@
         margin-right: 2%;
         margin-left: 2%;
     }
+    #result {
+        font-size: 26px;
+    }
     .clear {
         display : flex;
         flex-flow : row nowrap;
@@ -47,7 +51,7 @@
         margin-left: 2%;
     }
 
-    .number {
+    .point, .number1, .number2, .number3, .number4, .number5, .number6, .number7, .number8, .number9, .number0 {
         width: 22%;
         border: 5px solid red;
         margin-top: 2%;
