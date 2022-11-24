@@ -1,7 +1,8 @@
 //Variables declaration : 
-let userChoice = null ;
-let userSecondChoice = null;
+let userChoice = '';
+let userSecondChoice = '';
 let userOperator = null;
+
 
 //Query Selectors : 
 let number1 = document.querySelector('.number1');
@@ -19,6 +20,8 @@ let multiplyBtn = document.querySelector('.multiply');
 let substractBtn = document.querySelector('.substract');
 let addBtn = document.querySelector('.add');
 let resultBtn = document.querySelector('.equalsTo');
+let resultScreen = document.querySelector('.result');
+let clearBtn = document.querySelector(".clear").addEventListener('click', function(){clear();});
 
 
 //Event Listeners : 
@@ -32,30 +35,36 @@ let number7click = number7.addEventListener('click', function(){storeUserChoice(
 let number8click = number8.addEventListener('click', function(){storeUserChoice(8);});
 let number9click = number9.addEventListener('click', function(){storeUserChoice(9);});
 let number0click = number0.addEventListener('click', function(){storeUserChoice(0);});
-let divideclick = divideBtn.addEventListener('click', () => userOperator = "divide");
-let multiplyclick = multiplyBtn.addEventListener('click', () => userOperator = "multiply");
-let addclick = addBtn.addEventListener('click', () => userOperator = "add");
-let substractclick = substractBtn.addEventListener('click', () => userOperator = "substract");
-let resultclick = resultBtn.addEventListener('click', function(){operate(userOperator, userChoice, userSecondChoice);});
+let divideclick = divideBtn.addEventListener('click', function(){userSelectsOperator("divide");});
+let multiplyclick = multiplyBtn.addEventListener('click', function(){userSelectsOperator("multiply");});
+let addclick = addBtn.addEventListener('click', function(){userSelectsOperator("add");});
+let substractclick = substractBtn.addEventListener('click', function(){userSelectsOperator("substract");});
+let resultclick = resultBtn.addEventListener('click', function(){operate(userOperator, parseInt(userChoice), parseInt(userSecondChoice));});
 
 //Function for storing user clicks that will go to the number1click and so on : 
-function storeUserChoice(num) {
-    if (userOperator != null) { userSecondChoice += num;
+
+function userSelectsOperator(operator) {
+    if (userOperator != null) {
+        let middleResult = operate(userOperator, parseInt(userChoice), parseInt(userSecondChoice));
+        userChoice = middleResult;
+        userSecondChoice = '';
+        userOperator = operator;
     }
     else {
-        userChoice += num;
+        userOperator = operator;
     }
-    console.log(`userChoice is ${userChoice}`)
-    console.log(`userSecondChoice is ${userSecondChoice}`)
+}
+
+function storeUserChoice(num) {    
+    if (userOperator != null) { 
+        userSecondChoice += num.toString();
+        resultScreen.innerHTML = `${userSecondChoice}`;
+    }
+    else {
+        userChoice += num.toString();
+        resultScreen.innerHTML = `${userChoice}`;
+    }
 };
-
-
-//Event Listeners : 
-// number1.addEventListener("click", storeFirstValue)
-// console.log(number1.innerHTML);
-// console.log(parseInt(number2.innerHTML));
-// console.log(typeof(number0.innerHTML));
-//Basic operations functions : 
 
 //ADD :
 function add(a, b) {
@@ -79,22 +88,26 @@ function divide(a, b) {
 
 function operate(operator, a, b) {
     if (operator == "add") {
-        console.log(add(a, b));
+        resultScreen.innerHTML = add(a, b);
+        return add(a,b);
     }
     if (operator == "substract") {
+        resultScreen.innerHTML = substract(a, b);
         return substract(a, b);
     }
     if (operator == "multiply") {
+        resultScreen.innerHTML = multiply(a, b);
         return multiply(a, b);
     }
     if (operator == "divide") {
+        resultScreen.innerHTML = divide(a, b);
         return divide(a, b);
     }
 }
 
-// let userChoice = addEventListener
-// function userInput () {
-//     if (a) {
-        
-//     }
-// }
+function clear() {
+    userChoice = '' ;
+    userSecondChoice = '';
+    userOperator = null;
+    resultScreen.removeChild(resultScreen.firstChild);
+}

@@ -29,15 +29,16 @@
     .result {
         display : flex;
         flex-flow : row nowrap;
-        justify-content: center;
+        justify-content: right;
         border: 8px dotted red;
         width: 100%;
         margin-top: 2%;
         margin-right: 2%;
         margin-left: 2%;
-    }
-    #result {
-        font-size: 26px;
+        height: 100%;
+        box-sizing: border-box;
+        align-items: center;
+        font-size: 44px;
     }
     .clear {
         display : flex;
