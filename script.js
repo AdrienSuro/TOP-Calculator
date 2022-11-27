@@ -22,6 +22,7 @@ let addBtn = document.querySelector('.add');
 let resultBtn = document.querySelector('.equalsTo');
 let resultScreen = document.querySelector('.result');
 let clearBtn = document.querySelector(".clear").addEventListener('click', function(){clear();});
+let pointBtn = document.querySelector(".point");
 
 
 //Event Listeners : 
@@ -35,6 +36,7 @@ let number7click = number7.addEventListener('click', function(){storeUserChoice(
 let number8click = number8.addEventListener('click', function(){storeUserChoice(8);});
 let number9click = number9.addEventListener('click', function(){storeUserChoice(9);});
 let number0click = number0.addEventListener('click', function(){storeUserChoice(0);});
+let pointclick = pointBtn.addEventListener('click', function(){storeUserChoice(".");});
 let divideclick = divideBtn.addEventListener('click', function(){userSelectsOperator("divide");});
 let multiplyclick = multiplyBtn.addEventListener('click', function(){userSelectsOperator("multiply");});
 let addclick = addBtn.addEventListener('click', function(){userSelectsOperator("add");});
@@ -88,19 +90,19 @@ function divide(a, b) {
 
 function operate(operator, a, b) {
     if (operator == "add") {
-        resultScreen.innerHTML = add(a, b);
+        resultScreen.innerHTML = Math.round(add(a, b)*1000)/1000;
         return add(a,b);
     }
     if (operator == "substract") {
-        resultScreen.innerHTML = substract(a, b);
+        resultScreen.innerHTML = Math.round(substract(a, b)*1000)/1000;
         return substract(a, b);
     }
     if (operator == "multiply") {
-        resultScreen.innerHTML = multiply(a, b);
+        resultScreen.innerHTML = Math.round(multiply(a, b)*1000)/1000;
         return multiply(a, b);
     }
     if (operator == "divide") {
-        resultScreen.innerHTML = divide(a, b);
+        resultScreen.innerHTML = Math.round(divide(a, b)*1000)/1000;
         return divide(a, b);
     }
 }
